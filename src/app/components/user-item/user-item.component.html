@@ -1,0 +1,9 @@
+<li class="card user-card">
+    <img class="user-image" [alt]="'Avatar for user ' + user().login" [src]="user().avatar_url">
+
+    <a [attr.aria-label]="'View details for ' + user().login"
+       routerLink="/user"
+       [queryParams]="{ username: user().login, type: user().type }">
+        {{ user().login }}
+    </a>
+</li>

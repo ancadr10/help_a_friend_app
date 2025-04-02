@@ -1,0 +1,36 @@
+<div class="user-details-container">
+    <h1>GitHub Details</h1>
+    <div class="top-container">
+        <div>
+            <p><strong>Name:</strong> {{ userLogin }}</p>
+            <p><strong>Type:</strong> {{ userType }}</p>
+        </div>
+
+        <a aria-label="Go back to users page, back arrow" routerLink="/users" class="go-back-btn">
+            <span aria-hidden="true" class="back-icon"></span>
+        </a>
+    </div>
+
+    <div class="repositories-container">
+        <h3>Repositories:</h3>
+
+        @if (userRepositories$ | async; as repos) {
+            <ul>
+                @for(repo of repos; track repo.id) {
+                    <li>
+                        <a [href]="repo.html_url" target="_blank"
+                            [attr.aria-label]="'View repository ' + repo.name">
+                            {{ repo.name }}
+                        </a>
+                    </li>
+                }
+                @empty {
+                    <p>No repositories found</p>
+                }
+            </ul>
+        }
+        @else {
+            <p>Loading repositories...</p>
+        }
+
+    </div>

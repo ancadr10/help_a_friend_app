@@ -1,0 +1,13 @@
+<ul class="users-container">
+    @for(user of userList; track user.id) {
+        <user-item [user]="user" />
+    }
+
+    @if (userList.length === 0) {
+        <div>No users found. Please wait...</div>
+    }
+
+    @if (userList.length) {
+        <div lazyLoad (lazyLoadEvent)="loadUsers()">Loading more users...</div>
+    }
+</ul>

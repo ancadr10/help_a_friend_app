@@ -1,0 +1,50 @@
+:host {
+    .user-card {
+        margin: 20px 10px;
+        padding: 15px;
+        border-radius: 10px;
+        border: 2px solid lightgray;
+        box-shadow: 0 2px 8px #00000026;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        overflow-x: hidden;
+        height: 150px;
+
+        img {
+            border-radius: 7px;
+            height: 150px;
+            object-fit: contain;
+        }
+
+        a {
+            font-size: 20px;
+            margin: auto;
+            cursor: pointer;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+
+        a:focus {
+            outline: 2px solid #0056b3;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .user-card {
+            height: auto;
+            padding: 10px;
+        }
+    }
+
+}
